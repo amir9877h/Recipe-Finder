@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./navbar.module.scss";
 import Logo from "../../assets/images/Logo.png";
+import NavLink from "../NavLink";
 
 const NavBar = () => {
   return (
@@ -10,10 +11,10 @@ const NavBar = () => {
         <h1>Recipe Finder</h1>
       </div>
       <div className={styles.navbarLinks}>
-        <a href="#">Home</a>
-        <a href="#">Favorites</a>
-        <a href="#">About Us</a>
-        <a href="#">Contact Us</a>
+        <NavLink href="/">Home</NavLink>
+        <NavLink href="/favorites">Favorites</NavLink>
+        <NavLink href="/about">About Us</NavLink>
+        <NavLink href="/contact">Contact Us</NavLink>
       </div>
     </nav>
   );

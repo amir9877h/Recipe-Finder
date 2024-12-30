@@ -1,0 +1,31 @@
+.active {
+  text-decoration-line: underline;
+  text-decoration-color: #ff6f3c; /* Soft red color for active state */
+  text-underline-offset: 6px;
+  text-decoration-thickness: 3px;
+  color: #f5f5f5; /* Light color for active text */
+  font-weight: 600; /* Bold the active link for emphasis */
+  transition: color 0.3s ease, text-decoration-color 0.3s ease,
+    transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.link {
+  cursor: pointer;
+  color: #155263; /* Light color for inactive links */
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s ease; /* Smooth color transition and scale effect */
+}
+
+.link:hover {
+  text-decoration-line: underline;
+  text-decoration-color: #ff6f3c; /* Highlight with the same color as active */
+  text-underline-offset: 6px;
+  text-decoration-thickness: 3px;
+  color: #000000; /* Change to white on hover for contrast */
+  transform: scale(1.05); /* Slight zoom effect for hover interaction */
+}
+
+.link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 6px rgba(255, 99, 71, 0.7); /* Add a subtle focus ring with a warm color */
+}

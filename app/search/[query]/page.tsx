@@ -1,4 +1,3 @@
-import NavBar from "@/components/NavBar";
 import styles from "./search-page.module.scss";
 import FoodList from "@/components/FoodList";
 import Pagination from "@/components/Pagination";
@@ -73,7 +72,6 @@ const Query = async ({
 
   return (
     <>
-      <NavBar />
       <FoodList
         list={safeData.results}
         offset={safeData.offset}
