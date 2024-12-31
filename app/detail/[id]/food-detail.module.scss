@@ -1,0 +1,32 @@
+.content {
+  padding-inline: 20px;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: white;
+  padding-block: 64px;
+  border-radius: 16px 16px 0 0;
+}
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.image {
+  align-items: center;
+}
+.blur {
+  background-image: url("../../../assets/images/bg\ dark.jpg");
+  position: absolute;
+  width: 100%;
+  height: calc(100vmax - 141px);
+  box-shadow: inset 0 0 0 100vmax #ffc83c58;
+
+  filter: blur(2px);
+  z-index: 1;
+}
+.image,
+.content {
+  z-index: 2;
+}

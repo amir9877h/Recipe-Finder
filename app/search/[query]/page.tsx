@@ -8,7 +8,7 @@ const getFoodResults = async (query: string, page: number = 1) => {
     const response = await fetch(
       `${
         process.env.NEXT_PUBLIC_SEARCH_BASE_URL
-      }?query=${query}&offset=${offset}&number=${10}&apiKey=${
+      }/recipes/complexSearch?query=${query}&offset=${offset}&number=${10}&apiKey=${
         process.env.NEXT_PUBLIC_API_KEY
       }`,
       {

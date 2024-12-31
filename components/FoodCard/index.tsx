@@ -1,20 +1,18 @@
-import Image from "next/image";
-import styles from "./food-card.module.scss";
+import RouteToDetail from "./RouteToDetail";
+import CartContent from "./CardContent";
 
-type FoodCardType = {
+export type FoodCardProps = {
+  id: string;
   imageUrl: string;
   title: string;
   description: string;
 };
 
-const FoodCard = ({ imageUrl, title, description }: FoodCardType) => {
+const FoodCard = (props: FoodCardProps) => {
   return (
-    <div className={styles.container}>
-      <h3>{title}</h3>
-      <Image src={imageUrl} alt={title} width={300} height={300} />
-      <p>{description}</p>
-      <button>More Detail...</button>
-    </div>
+    <RouteToDetail id={props.id}>
+      <CartContent {...props} />
+    </RouteToDetail>
   );
 };
 

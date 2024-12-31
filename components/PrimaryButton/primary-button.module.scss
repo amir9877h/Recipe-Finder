@@ -1,0 +1,12 @@
+.style {
+  all: unset;
+  background-color: #ff6f3c;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: 0.3s ease-in-out;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: #ff703ca9;
+  }
+}
