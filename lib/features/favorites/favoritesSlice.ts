@@ -28,6 +28,9 @@ export const favoritesSlice = createSlice({
       state,
       action: PayloadAction<FavoritesState["value"][0]>
     ) => {
+      if (state.value.some((item) => item.id === action.payload.id)) {
+        return;
+      }
       state.value.push(action.payload);
       saveToLocalStorage("favorites", state.value);
     },

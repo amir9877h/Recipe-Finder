@@ -1,27 +1,19 @@
 "use client";
-import { useAppSelector, useAppDispatch } from "../../lib/hooks";
+import { useAppSelector } from "../../lib/hooks";
 import styles from "./favorites.module.scss";
-
-import {
-  addToFavorites,
-  removeFromFavorites,
-} from "../../lib/features/favorites/favoritesSlice";
 import FavoriteButton from "@/components/FavoriteButton";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const FavoriteFoodCard = ({ favorite }) => {
   const router = useRouter();
-  const dispatch = useAppDispatch();
-  const handleRemoveFromFavorites = () => {
-    dispatch(removeFromFavorites(favorite));
-  };
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.stopPropagation();
     router.push(`/detail/${favorite.id}`);
   };
   return (
     <div
-      className="cursor-pointer flex flex-col items-center justify-center card w-96 bg-base-100 shadow-xl"
+      className="cursor-pointer flex flex-col items-center justify-between card w-96 bg-base-100 shadow-xl"
       onClick={handleClick}
     >
       <figure className="!w-full">
@@ -55,8 +47,6 @@ const FavoriteFoodCard = ({ favorite }) => {
 const FavoritePage = () => {
   // The `state` arg is correctly typed as `RootState` already
   const favorites = useAppSelector((state) => state.favorites.value);
-
-  const dispatch = useAppDispatch();
   return (
     <section className={styles.container}>
       <h1 className="text-3xl font-bold">Favorites</h1>
