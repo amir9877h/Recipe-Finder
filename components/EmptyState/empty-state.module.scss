@@ -1,0 +1,131 @@
+// EmptyState.module.scss
+.emptyState {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(21, 82, 99, 0.1);
+  }
+  
+  .content {
+    text-align: center;
+    max-width: 400px;
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .icon {
+    margin-bottom: 1.5rem;
+    color: #155263;
+  }
+  
+  .defaultIcon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1.5rem;
+    color: #FF9A3C;
+    animation: pulse 2s infinite;
+  
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  .title {
+    color: #155263;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  
+  .message {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  
+  .actionButton {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    background-color: #FF6F3C;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  
+    &:hover {
+      background-color: #FF9A3C;
+      transform: translateY(-1px);
+    }
+  
+    &:active {
+      transform: translateY(0);
+    }
+  }
+  
+  .customContent {
+    margin: 1.5rem 0;
+  }
+  
+  // Animations
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  // Responsive styles
+  @media (max-width: 768px) {
+    .emptyState {
+      min-height: 250px;
+      padding: 1.5rem;
+    }
+  
+    .defaultIcon {
+      width: 48px;
+      height: 48px;
+    }
+  
+    .title {
+      font-size: 1.25rem;
+    }
+  
+    .message {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .emptyState {
+      min-height: 200px;
+      padding: 1rem;
+    }
+  
+    .content {
+      max-width: 100%;
+    }
+  }
+  

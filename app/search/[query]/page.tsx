@@ -1,3 +1,4 @@
+import EmptyState from "@/components/EmptyState";
 import styles from "./search-page.module.scss";
 import FoodList from "@/components/FoodList";
 import Pagination from "@/components/Pagination";
@@ -70,7 +71,7 @@ const Query = async ({
     totalResults: data?.totalResults || 0,
   };
 
-  return (
+  return safeData.results.length > 0 ? (
     <>
       <FoodList
         list={safeData.results}
@@ -84,6 +85,11 @@ const Query = async ({
         pageSize={pageSize}
       />
     </>
+  ) : (
+    <EmptyState
+      title="No Recipes Found"
+      message={`No Results for ${resolvedParams.query}.\nTry adjusting your search criteria or create a new recipe.`}
+    />
   );
 };
 

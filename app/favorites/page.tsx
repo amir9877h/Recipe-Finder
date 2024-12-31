@@ -1,4 +1,5 @@
 "use client";
+import EmptyState from "@/components/EmptyState";
 import { useAppSelector } from "../../lib/hooks";
 import styles from "./favorites.module.scss";
 import FavoriteButton from "@/components/FavoriteButton";
@@ -49,12 +50,18 @@ const FavoritePage = () => {
   const favorites = useAppSelector((state) => state.favorites.value);
   return (
     <section className={styles.container}>
-      <h1 className="text-3xl font-bold">Favorites</h1>
-      <div className="flex flex-wrap justify-center my-5 gap-4 w-full">
-        {favorites.map((favorite) => (
-          <FavoriteFoodCard key={favorite.id} favorite={favorite} />
-        ))}
-      </div>
+      {favorites.length > 0 ? (
+        <>
+          <h1 className="text-3xl font-bold">Favorites</h1>
+          <div className="flex flex-wrap justify-center my-5 gap-4 w-full">
+            {favorites.map((favorite) => (
+              <FavoriteFoodCard key={favorite.id} favorite={favorite} />
+            ))}
+          </div>
+        </>
+      ) : (
+        <EmptyState />
+      )}
     </section>
   );
 };
