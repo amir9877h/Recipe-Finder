@@ -36,8 +36,8 @@ const FoodDetail = async ({ params }) => {
 
   return (
     <>
-      <div className={styles.blur}></div>
       <section className={styles.container}>
+        <div className={styles.blur}></div>
         <Image
           src={food.image}
           alt={food.title}
@@ -70,6 +70,19 @@ const FoodDetail = async ({ params }) => {
                 </div>
               );
             })}
+          </div>
+          <div className="mt-5 flex gap-5 border border-s-orange-400 py-2 px-4">
+            Links: 
+            <a href={food.sourceUrl} target="_blank" rel="nofollow noreferrer">
+              Source Link
+            </a>
+            <a
+              href={food.spoonacularSourceUrl}
+              target="_blank"
+              rel="nofollow noreferrer"
+            >
+              Spoonacular Link
+            </a>
           </div>
         </article>
       </section>
