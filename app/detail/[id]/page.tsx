@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./food-detail.module.scss";
 import DOMPurify from "isomorphic-dompurify";
-import PrimaryButton from "@/components/PrimaryButton";
+import FavoriteButton from "@/components/FavoriteButton";
 
 type FoodDetailProps = {
   id: string;
@@ -48,7 +48,7 @@ const FoodDetail = async ({ params }) => {
         <article className={styles.content}>
           <div className="flex justify-between">
             <h1 className="py-3 font-bold text-4xl">{food.title}</h1>
-            <PrimaryButton>Add To Favorites</PrimaryButton>
+            <FavoriteButton food={food} />
           </div>
           <h3 className="py-3 font-bold text-xl">Summary:</h3>
           <div

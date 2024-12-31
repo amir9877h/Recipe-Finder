@@ -18,9 +18,10 @@
 }
 .blur {
   background-image: url("../../../assets/images/bg\ dark.jpg");
+  background-repeat: repeat;
   position: absolute;
   width: 100%;
-  height: calc(100vmax - 141px);
+  height: calc(100% - 111px);
   box-shadow: inset 0 0 0 100vmax #ffc83c58;
 
   filter: blur(2px);
