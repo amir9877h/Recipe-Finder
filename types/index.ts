@@ -1,7 +1,5 @@
 export type Params = {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 };
 
 export type FoodIngredients = {
