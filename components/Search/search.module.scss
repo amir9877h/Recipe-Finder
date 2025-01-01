@@ -76,6 +76,7 @@
   visibility: hidden;
   transition: top 0.1s ease-in-out, opacity 0.5s ease-in-out;
   border-radius: 0 0 8px 8px;
+  overflow-x: hidden;
   .searchResultBoxContent {
     width: 100%;
     display: grid;
@@ -101,6 +102,18 @@
         }
       }
       .searchResultBoxContentText {
+        p {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          word-break: break-word;
+          max-width: 100%;
+          font-size: 14px; // Add a specific font size
+          line-height: 1.2; // Adjust line height
+          height: 50px; // Set a fixed height
+        }
       }
     }
   }
@@ -126,5 +139,58 @@
     &:hover {
       border-radius: 8px;
     }
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .searchResultBoxContent {
+    grid-template-columns: 1fr 1fr !important;
+    .searchResultCard {
+      align-items: start !important;
+      justify-content: start !important;
+    }
+  }
+  .searchResultBox.active .seeAll {
+    margin: 0;
+    width: 100%;
+    position: unset !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media only screen and (720px < width < 1200px) {
+  .searchResultBoxContent {
+    grid-template-columns: 1fr !important;
+    .searchResultCard {
+      align-items: start !important;
+      justify-content: start !important;
+    }
+  }
+  .searchResultBox.active .seeAll {
+    margin: 0;
+    width: 100%;
+    position: unset !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .searchResultBoxContent {
+    grid-template-columns: 1fr !important;
+    .searchResultCard {
+      align-items: start !important;
+      justify-content: start !important;
+    }
+  }
+  .searchResultBox.active .seeAll {
+    margin: 0;
+    width: 100%;
+    position: unset !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
   }
 }
