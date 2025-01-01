@@ -6,7 +6,7 @@ import FavoriteButton from "@/components/FavoriteButton";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-interface Favorite {
+export interface Favorite {
   id: string;
   image: string;
   title: string;
