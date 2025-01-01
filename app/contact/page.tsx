@@ -37,7 +37,7 @@ const Contact = () => {
   return (
     <div className={styles.contactContainer}>
       <h1>Contact Us</h1>
-      <p>Have questions? We'd love to hear from you.</p>
+      <p>Have questions? We&apos;d love to hear from you.</p>
       
       <form className={styles.contactForm} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.formGroup}>
@@ -98,7 +98,7 @@ const Contact = () => {
 
         {submitSuccess && (
           <div className={styles.successMessage}>
-            Thank you for your message! We'll get back to you soon.
+            Thank you for your message! We&apos;ll get back to you soon.
           </div>
         )}
       </form>

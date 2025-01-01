@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "./food-card.module.scss";
+// import styles from "./food-card.module.scss";
 import { FoodCardProps } from ".";
 
 const CartContent = (props: FoodCardProps) => {

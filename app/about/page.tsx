@@ -76,7 +76,7 @@ const About = () => {
             Our Team
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            We're a passionate team of food lovers, developers, and designers
+            We&apos;re a passionate team of food lovers, developers, and designers
             working together to bring you the best recipe discovery experience
             possible.
           </p>

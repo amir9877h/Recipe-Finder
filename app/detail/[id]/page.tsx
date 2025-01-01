@@ -3,10 +3,6 @@ import styles from "./food-detail.module.scss";
 import DOMPurify from "isomorphic-dompurify";
 import FavoriteButton from "@/components/FavoriteButton";
 
-type FoodDetailProps = {
-  id: string;
-};
-
 const getFoodDetail = async (id: string) => {
   try {
     const res = await fetch(
@@ -72,7 +68,7 @@ const FoodDetail = async ({ params }) => {
             })}
           </div>
           <div className="mt-5 flex gap-5 border border-s-orange-400 py-2 px-4">
-            Links: 
+            Links:
             <a href={food.sourceUrl} target="_blank" rel="nofollow noreferrer">
               Source Link
             </a>
