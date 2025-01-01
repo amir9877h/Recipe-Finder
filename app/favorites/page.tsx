@@ -6,9 +6,16 @@ import FavoriteButton from "@/components/FavoriteButton";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const FavoriteFoodCard = ({ favorite }) => {
+interface Favorite {
+  id: string;
+  image: string;
+  title: string;
+  // Add any other properties that your favorite object has
+}
+
+const FavoriteFoodCard = ({ favorite }: { favorite: Favorite }) => {
   const router = useRouter();
-  const handleClick = (e) => {
+  const handleClick = (e: { stopPropagation: () => void; }) => {
     e.stopPropagation();
     router.push(`/detail/${favorite.id}`);
   };
