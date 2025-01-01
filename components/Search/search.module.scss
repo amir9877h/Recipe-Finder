@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  // transition: all 10.3s ease-in-out;
 }
 .searchBackgroundImage {
   width: 100%;
@@ -14,13 +15,18 @@
   z-index: -1;
 }
 .content {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   background-color: white;
   border-radius: 8px;
   padding-inline-end: 20px;
   width: 50%;
-  input {
+  transition: top 1s ease-in-out, transform 1s ease-in-out,
+    margin-top 1s ease-in-out;
+  .searchInput {
     width: 100%;
     height: 85px;
     border-radius: 8px;
@@ -32,6 +38,21 @@
     cursor: pointer;
   }
 }
+
+.container:has(.searchInput:focus),
+.container:has(.searchInput.focus) {
+  // align-items: start;
+  position: relative;
+  .content {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-top: 20px;
+    position: absolute;
+    top: 0;
+    transform: translateY(0);
+  }
+}
+
 @media only screen and (max-width: 720px) {
   .container {
     width: 100%;
@@ -40,5 +61,70 @@
   .content {
     // padding: 0;
     width: 100%;
+  }
+}
+
+////////////////////////////////////////////
+///
+.searchResultBox {
+  position: absolute;
+  top: 0%;
+  opacity: 0;
+  background-color: white;
+  width: 100%;
+  pointer-events: none;
+  visibility: hidden;
+  transition: top 0.1s ease-in-out, opacity 0.5s ease-in-out;
+  border-radius: 0 0 8px 8px;
+  .searchResultBoxContent {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 16px;
+    .searchResultCard {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      // border: 1px solid red;
+      .searchResultBoxContentImage {
+        width: 64px;
+        height: 64px;
+        img {
+          min-width: 64px;
+          min-height: 64px;
+          object-fit: cover;
+        }
+      }
+      .searchResultBoxContentText {
+      }
+    }
+  }
+}
+.searchResultBox.active {
+  top: 100%;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  visibility: visible;
+  opacity: 1;
+  .seeAll {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-inline-end: 20px;
+    margin-block-end: 20px;
+    color: #ff6f3c;
+    padding: 8px 16px;
+    border: 1px solid #ff6f3c;
+    transition: border-radius 0.3s ease-in-out;
+    &:hover {
+      border-radius: 8px;
+    }
   }
 }

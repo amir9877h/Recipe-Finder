@@ -73,6 +73,11 @@ const Query = async ({
 
   return safeData.results.length > 0 ? (
     <>
+      <h1 className="text-center font-bold text-4xl max-md:text-2xl my-3">
+        Search Results for "
+        <span className="text-orange-500">{resolvedParams.query}</span>"
+        <span className={styles.count}>({safeData.totalResults} results)</span>
+      </h1>
       <FoodList
         list={safeData.results}
         offset={safeData.offset}
