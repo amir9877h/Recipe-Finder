@@ -8,8 +8,8 @@ import {
 // Define a type for the slice state
 export interface FavoritesState {
   value: {
-    id: number;
-    name: string;
+    id: string;
+    title: string;
     image: string;
   }[];
 }
@@ -34,7 +34,7 @@ export const favoritesSlice = createSlice({
       state.value.push(action.payload);
       saveToLocalStorage("favorites", state.value);
     },
-    removeFromFavorites: (state, action: PayloadAction<number>) => {
+    removeFromFavorites: (state, action: PayloadAction<string>) => {
       state.value = state.value.filter((item) => item.id !== action.payload);
       saveToLocalStorage("favorites", state.value);
     },

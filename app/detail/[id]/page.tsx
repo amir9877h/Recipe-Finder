@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./food-detail.module.scss";
 import DOMPurify from "isomorphic-dompurify";
 import FavoriteButton from "@/components/FavoriteButton";
+import { FoodIngredients, Params } from "@/types";
 
 const getFoodDetail = async (id: string) => {
   try {
@@ -24,7 +25,7 @@ const getFoodDetail = async (id: string) => {
   }
 };
 
-const FoodDetail = async ({ params }) => {
+const FoodDetail = async ({ params }: Params) => {
   const foodId = await params;
   const food = await getFoodDetail(foodId.id);
 
@@ -53,19 +54,23 @@ const FoodDetail = async ({ params }) => {
           />
           <div className={styles.ingredients}>
             <h3 className="py-3 font-bold text-xl">Ingredients:</h3>
-            {food.extendedIngredients.map((item) => {
-              return (
-                <div key={item.id} className="py-1 flex gap-2">
-                  <h3 className="text-xl indent-6 font-bold">{item.name}: </h3>
-                  <p>{item.original}</p>
-                  {item.metric && (
-                    <p>
-                      amount: {item?.metric?.amount} {item?.metric?.unitLong}
-                    </p>
-                  )}
-                </div>
-              );
-            })}
+            {food.extendedIngredients.map(
+              (item: FoodIngredients) => {
+                return (
+                  <div key={item.id} className="py-1 flex gap-2">
+                    <h3 className="text-xl indent-6 font-bold">
+                      {item.name}:{" "}
+                    </h3>
+                    <p>{item.original}</p>
+                    {item.metric && (
+                      <p>
+                        amount: {item?.metric?.amount} {item?.metric?.unitLong}
+                      </p>
+                    )}
+                  </div>
+                );
+              }
+            )}
           </div>
           <div className="mt-5 flex gap-5 border border-s-orange-400 py-2 px-4">
             Links:

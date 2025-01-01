@@ -5,13 +5,20 @@ import {
   addToFavorites,
   removeFromFavorites,
 } from "@/lib/features/favorites/favoritesSlice";
+import { Food } from "@/types";
 
-const FavoriteButton = ({ food, className }) => {
+const FavoriteButton = ({
+  food,
+  className = "",
+}: {
+  food: Food;
+  className?: string;
+}) => {
   const favorites = useAppSelector((state) => state.favorites.value);
   const dispatch = useAppDispatch();
-  const handleClick = (e) => {
+  const handleClick = (e: { stopPropagation: () => void; }) => {
     e.stopPropagation();
-    if (favorites.some((f) => f.id === food.id)) {
+    if (favorites.some((f) => f?.id === food?.id)) {
       dispatch(removeFromFavorites(food.id));
     } else {
       dispatch(addToFavorites(food));

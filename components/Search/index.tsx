@@ -5,8 +5,13 @@ import SearchBackgroundImage from "../../assets/images/search background.jpg";
 import SearchIcon from "@mui/icons-material/Search";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { Food, FoodResponse } from "@/types";
 
-const handleSearch = (router, searchKey) => {
+const handleSearch = (
+  router: AppRouterInstance | string[],
+  searchKey: string
+) => {
   try {
     router.push(`/search/${searchKey}`);
   } catch (error) {
@@ -62,13 +67,13 @@ const Search = () => {
 
 export default Search;
 
-const SearchResultBox = ({ search }) => {
-  const [result, setResult] = useState({});
+const SearchResultBox = ({ search }: { search: string }) => {
+  const [result, setResult] = useState<FoodResponse>({ results: [] });
   const [activateClass, setActivateClass] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    const getData = async (key) => {
+    const getData = async (key: string) => {
       if (key === "") return {};
       try {
         const response = await fetch(
@@ -106,40 +111,44 @@ const SearchResultBox = ({ search }) => {
     return () => clearTimeout(timeoutId);
   }, [search]); // Only run effect when search term changes
 
-  console.log(activateClass);
+  // console.log(activateClass);
   return (
-    result?.results?.length > 0 && <div
-    className={[
-      styles.searchResultBox,
-      activateClass ? styles.active : "",
-    ].join(" ")}
-  >
-    <div className={styles.searchResultBoxContent}>
-      {activateClass &&
-        result?.results?.map((item) => (
-          <SearchResultCard key={item.id} food={item} />
-        ))}
-    </div>
-    <button
-      className={styles.seeAll}
-      onClick={() => handleSearch(router, search)}
-    >
-      see all
-    </button>
-  </div>
+    "results" in result &&
+    Array.isArray(result.results) &&
+    result?.results?.length > 0 && (
+      <div
+        className={[
+          styles.searchResultBox,
+          activateClass ? styles.active : "",
+        ].join(" ")}
+      >
+        <div className={styles.searchResultBoxContent}>
+          {activateClass &&
+            result?.results?.map((item: Food) => (
+              <SearchResultCard key={item.id} food={item} />
+            ))}
+        </div>
+        <button
+          className={styles.seeAll}
+          onClick={() => handleSearch(router, search)}
+        >
+          see all
+        </button>
+      </div>
+    )
   );
 };
 
-const SearchResultCard = ({ food }) => {
+const SearchResultCard = ({ food }: { food: Food }) => {
   const router = useRouter();
   return (
     <div
       className={styles.searchResultCard}
       onClick={() => {
         router.push(`/detail/${food.id}`);
-        console.log("clicked");
+        // console.log("clicked");
 
-        console.log(food.id);
+        // console.log(food.id);
       }}
     >
       <div className={styles.searchResultBoxContentImage}>
