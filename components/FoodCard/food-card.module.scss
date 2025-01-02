@@ -9,6 +9,8 @@
   align-items: start;
   justify-content: space-between;
   padding: 10px 20px;
+  // height: fit-content;
+  // max-height: 350px;
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -17,5 +19,17 @@
   img {
     width: 100%;
     object-fit: cover;
+  }
+  h3 {
+    display: -webkit-box;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    max-width: 100%;
+    line-height: 1.2; // Adjust line height
+    // height: 50px; // Set a fixed height
   }
 }
