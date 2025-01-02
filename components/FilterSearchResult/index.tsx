@@ -6,6 +6,7 @@ import React from "react";
 import styles from "./filter-search-result.module.scss";
 
 const FilterSearchResult = () => {
+
   const router = useRouter();
   const searchParams = useSearchParams();
   const { query } = useParams();
@@ -76,38 +77,38 @@ const FilterSearchResult = () => {
   };
 
   return (
-    <div className={styles.filterContainer}>
-      <h3 className="font-bold text-3xl mb-2">Filter By:</h3>
-      <div className={styles.filterSection}>
-        <h4>Type:</h4>
-        <FilterOptions
-          options={foodTypes}
-          currentOption={currentType}
-          handleClick={handleFilterClick}
-          optionsType="type"
-        />
-      </div>
+      <div className={styles.filterContainer}>
+        <h3 className="font-bold text-3xl mb-2">Filter By:</h3>
+        <div className={styles.filterSection}>
+          <h4>Type:</h4>
+          <FilterOptions
+            options={foodTypes}
+            currentOption={currentType}
+            handleClick={handleFilterClick}
+            optionsType="type"
+          />
+        </div>
 
-      <div className={styles.filterSection}>
-        <h4>Diet:</h4>
-        <FilterOptions
-          options={dietTypes}
-          currentOption={currentDiet}
-          handleClick={handleFilterClick}
-          optionsType="diet"
-        />
-      </div>
+        <div className={styles.filterSection}>
+          <h4>Diet:</h4>
+          <FilterOptions
+            options={dietTypes}
+            currentOption={currentDiet}
+            handleClick={handleFilterClick}
+            optionsType="diet"
+          />
+        </div>
 
-      <div className={styles.filterSection}>
-        <h4>Sort By:</h4>
-        <FilterOptions
-          options={sortOptions}
-          currentOption={currentSort}
-          handleClick={handleFilterClick}
-          optionsType="sort"
-        />
+        <div className={styles.filterSection}>
+          <h4>Sort By:</h4>
+          <FilterOptions
+            options={sortOptions}
+            currentOption={currentSort}
+            handleClick={handleFilterClick}
+            optionsType="sort"
+          />
+        </div>
       </div>
-    </div>
   );
 };
 
