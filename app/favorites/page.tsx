@@ -15,13 +15,13 @@ export interface Favorite {
 
 const FavoriteFoodCard = ({ favorite }: { favorite: Favorite }) => {
   const router = useRouter();
-  const handleClick = (e: { stopPropagation: () => void; }) => {
+  const handleClick = (e: { stopPropagation: () => void }) => {
     e.stopPropagation();
     router.push(`/detail/${favorite.id}`);
   };
   return (
     <div
-      className="cursor-pointer flex flex-col items-center justify-between card w-96 bg-base-100 shadow-xl"
+      className={[styles.favoCard, "rounded cursor-pointer flex flex-col items-center justify-between card w-96 bg-base-100 shadow-xl"].join(" ")}
       onClick={handleClick}
     >
       <figure className="!w-full">
@@ -30,7 +30,7 @@ const FavoriteFoodCard = ({ favorite }: { favorite: Favorite }) => {
           alt={favorite.title}
           width={500}
           height={300}
-          className="w-full object-cover h-full"
+          className="w-[96%] object-cover h-full m-2"
         />
       </figure>
       <div className="card-body w-full">

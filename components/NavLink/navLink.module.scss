@@ -11,7 +11,7 @@
 
 .link {
   cursor: pointer;
-  color: #155263; /* Light color for inactive links */
+  color: var(--navlink-text-color); /* Light color for inactive links */
   font-weight: 500;
   transition: color 0.3s ease, transform 0.2s ease; /* Smooth color transition and scale effect */
 }
@@ -21,7 +21,9 @@
   text-decoration-color: #ff6f3c; /* Highlight with the same color as active */
   text-underline-offset: 6px;
   text-decoration-thickness: 3px;
-  color: #000000; /* Change to white on hover for contrast */
+  color: var(
+    --navlink-hover-text-color
+  ); /* Change to white on hover for contrast */
   transform: scale(1.05); /* Slight zoom effect for hover interaction */
 }
 

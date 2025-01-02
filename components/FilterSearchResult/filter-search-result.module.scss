@@ -1,7 +1,7 @@
 /* components/FilterSearchResult/FilterSearchResult.module.css */
 .filterContainer {
   padding: 1rem;
-  background-color: #f8f9fa;
+  background-color: var(--background-container-color);
   border-radius: 8px;
   // margin-bottom: 2rem;
   height: fit-content;
@@ -10,14 +10,16 @@
   position: sticky;
   top: 20px;
   overflow-y: auto;
+  color: var(--text-color);
 }
 
 .filterSection {
+  color: var(--text-color) !important;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
   gap: 20px;
-  background-color: white;
+  background-color: var(--background-card-color);
   border-radius: 8px;
   padding: 16px 8px;
   justify-content: space-between;
@@ -25,7 +27,7 @@
 
 .filterSection h4 {
   margin-bottom: 0.5rem;
-  color: #333;
+  // color: #333;
   font-size: 1rem;
 }
 
@@ -44,6 +46,7 @@
   cursor: pointer;
   transition: all 0.2s ease;
   font-size: 0.9rem;
+  color: black;
 }
 
 .filterButton:hover {

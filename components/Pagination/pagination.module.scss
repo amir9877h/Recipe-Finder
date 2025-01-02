@@ -16,19 +16,19 @@
   padding: 0.5rem 1rem;
   border: 1px solid #e2e8f0;
   border-radius: 0.375rem;
-  color: #4a5568;
+  color: var(--pageLink-color);
   text-decoration: none;
   transition: all 0.2s ease;
 
   &:hover:not(.disabled):not(.active) {
-    background-color: #f7fafc;
-    color: #2d3748;
+    background-color: var(--pageLink-background-color-hover);
+    color: var(--pageLink-hover-color);
   }
 
   &.active {
-    background-color: #4299e1;
+    background-color: #155263;
     color: white;
-    border-color: #4299e1;
+    border-color: #155263;
   }
 
   &.disabled {
@@ -40,7 +40,7 @@
 
 .ellipsis {
   padding: 0.5rem;
-  color: #4a5568;
+  color: var(--ellipsis-color);
 }
 @media only screen and (max-width: 515px) {
   .prevLink {

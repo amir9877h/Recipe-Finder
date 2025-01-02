@@ -3,24 +3,60 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --navbar-bg: #f8f9fa;
+  --button-bg: #e9ecef;
+  --button-hover: #dee2e6;
+  --navlink-text-color: #155263;
+  --navlink-hover-text-color: #000000;
+  --background-container-color: white;
+  --background-card-color: white;
+  --background-card-hover-color: rgba(0, 0, 0, 0.15);
+  --pageLink-color: #4a5568;
+  --pageLink-background-color-hover: #f7fafc;
+  --pageLink-hover-color: #2d3748;
+  --ellipsis-color: #4a5568;
+  --theme-btn-bg: #FFC93C;
+  --theme-btn-bg-hover: #ffc83c73;
+  --theme-btn-color: #333333;
+}
+
+[data-theme="dark"] {
+  --background-color: #1a1a1a;
+  --text-color: #ffffff;
+  --navbar-bg: #2d2d2d;
+  --button-bg: #404040;
+  --button-hover: #4a4a4a;
+  --navlink-text-color: white;
+  --navlink-hover-text-color: white;
+  --background-container-color: #155263;
+  --background-card-color: #333333;
+  --background-card-hover-color: #15526371;
+  --pageLink-color: white;
+  --pageLink-background-color-hover: #f7fafc;
+  --pageLink-hover-color: #2d3748;
+  --ellipsis-color: white;
+  --theme-btn-bg: white;
+  --theme-btn-bg-hover: rgb(225, 225, 225);
+  --theme-btn-color: #333333;
 }
 
 * {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: white) {
+/* @media (prefers-color-scheme: white) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   position: relative;
-  color: var(--foreground);
-  background: var(--background);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
   font-family: Arial, Helvetica, sans-serif;
 }

@@ -12,9 +12,7 @@ const RouteToDetail = ({ id, children }: RouteToDetailProps) => {
   const router = useRouter();
   return (
     <div
-      className={[styles.container, "cursor-pointer hover:bg-slate-200"].join(
-        " "
-      )}
+      className={[styles.container, "cursor-pointer"].join(" ")}
       onClick={() => router.push(`/detail/${id}`)}
     >
       {children}

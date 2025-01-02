@@ -4,6 +4,7 @@ import styles from "./navbar.module.scss";
 import Logo from "../../assets/images/Logo.png";
 import NavLink from "../NavLink";
 import { useState } from "react";
+import ThemeToggle from "../ThemeToggle";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,6 +38,7 @@ const NavBar = () => {
         <NavLink href="/about">About Us</NavLink>
         <NavLink href="/contact">Contact Us</NavLink>
       </div>
+      <ThemeToggle />
     </nav>
   );
 };
