@@ -43,9 +43,12 @@ const FoodDetail = async ({ params }: Params) => {
           className={styles.image}
         />
         <article className={styles.content}>
-          <div className="flex justify-between">
+          <div className="flex justify-between max-sm:flex-col">
             <h1 className="py-3 font-bold text-4xl">{food.title}</h1>
-            <FavoriteButton food={food} />
+            <FavoriteButton
+              food={food}
+              className="!flex !items-center max-sm:!justify-center"
+            />
           </div>
           <h3 className="py-3 font-bold text-xl">Summary:</h3>
           <div
@@ -54,23 +57,19 @@ const FoodDetail = async ({ params }: Params) => {
           />
           <div className={styles.ingredients}>
             <h3 className="py-3 font-bold text-xl">Ingredients:</h3>
-            {food.extendedIngredients.map(
-              (item: FoodIngredients) => {
-                return (
-                  <div key={item.id} className="py-1 flex gap-2">
-                    <h3 className="text-xl indent-6 font-bold">
-                      {item.name}:{" "}
-                    </h3>
-                    <p>{item.original}</p>
-                    {item.metric && (
-                      <p>
-                        amount: {item?.metric?.amount} {item?.metric?.unitLong}
-                      </p>
-                    )}
-                  </div>
-                );
-              }
-            )}
+            {food.extendedIngredients.map((item: FoodIngredients) => {
+              return (
+                <div key={item.id} className="py-1 flex gap-2">
+                  <h3 className="text-xl indent-6 font-bold">{item.name}: </h3>
+                  <p>{item.original}</p>
+                  {item.metric && (
+                    <p>
+                      amount: {item?.metric?.amount} {item?.metric?.unitLong}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
           </div>
           <div className="mt-5 flex gap-5 border border-s-orange-400 py-2 px-4">
             Links:
