@@ -3,6 +3,7 @@ import styles from "./food-detail.module.scss";
 import DOMPurify from "isomorphic-dompurify";
 import FavoriteButton from "@/components/FavoriteButton";
 import { FoodIngredients, Params } from "@/types";
+import ShareButtons from "@/components/ShareButtons";
 
 const getFoodDetail = async (id: string) => {
   try {
@@ -84,6 +85,7 @@ const FoodDetail = async ({ params }: Params) => {
               Spoonacular Link
             </a>
           </div>
+          <ShareButtons title={food.title} />
         </article>
       </section>
     </>
