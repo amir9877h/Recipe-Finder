@@ -113,29 +113,33 @@ const SearchResultBox = ({ search }: { search: string }) => {
 
   // console.log(activateClass);
   return (
-    "results" in result &&
-    Array.isArray(result.results) &&
-    result?.results?.length > 0 && (
-      <div
-        className={[
-          styles.searchResultBox,
-          activateClass ? styles.active : "",
-        ].join(" ")}
-      >
-        <div className={styles.searchResultBoxContent}>
-          {activateClass &&
-            result?.results?.map((item: Food) => (
-              <SearchResultCard key={item.id} food={item} />
-            ))}
+    <div className={[styles.searchResultBox, styles.active].join(" ")}>
+      {"results" in result &&
+      Array.isArray(result.results) &&
+      result?.results?.length > 0 ? (
+        <>
+          {" "}
+          <div className={styles.searchResultBoxContent}>
+            {activateClass &&
+              result?.results?.map((item: Food) => (
+                <SearchResultCard key={item.id} food={item} />
+              ))}
+          </div>
+          <button
+            className={styles.seeAll}
+            onClick={() => handleSearch(router, search)}
+          >
+            see all
+          </button>
+        </>
+      ) : (
+        <div className={[styles.searchResultBoxContent, "h-100"].join(" ")}>
+          <p className="">
+            Loading data please wait <span className={styles.simpleLoading}>...</span>
+          </p>
         </div>
-        <button
-          className={styles.seeAll}
-          onClick={() => handleSearch(router, search)}
-        >
-          see all
-        </button>
-      </div>
-    )
+      )}
+    </div>
   );
 };
 

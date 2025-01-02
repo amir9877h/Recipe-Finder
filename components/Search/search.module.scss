@@ -25,7 +25,7 @@
   padding-inline-end: 20px;
   width: 50%;
   transition: top 1s ease-in-out, transform 1s ease-in-out,
-  margin-top 1s ease-in-out;
+    margin-top 1s ease-in-out;
   background-color: var(--background-container-color);
   .searchInput {
     background-color: var(--background-container-color);
@@ -79,6 +79,7 @@
   transition: top 0.1s ease-in-out, opacity 0.5s ease-in-out;
   border-radius: 0 0 8px 8px;
   overflow-x: hidden;
+  // min-height: 20px;
   .searchResultBoxContent {
     background-color: var(--background-container-color);
     width: 100%;
@@ -145,6 +146,28 @@
     }
   }
 }
+
+@keyframes expandWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: 10%;
+  }
+}
+.simpleLoading {
+  text-align: start;
+  display: inline-block;
+  overflow-x: hidden;
+  width: 0;
+  margin: 0 auto;
+  animation: expandWidth 1.5s linear infinite;
+  -webkit-animation: expandWidth 1.5s linear infinite; /* Safari and Chrome */
+  -moz-animation: expandWidth 1.5s linear infinite; /* Firefox */
+  -o-animation: expandWidth 1.5s linear infinite; /* Opera */
+  animation: expandWidth 1.5s linear infinite;
+}
+
 @media only screen and (max-width: 1200px) {
   .searchResultBoxContent {
     grid-template-columns: 1fr 1fr !important;
