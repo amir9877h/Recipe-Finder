@@ -2,16 +2,26 @@ import EmptyState from "@/components/EmptyState";
 import styles from "./search-page.module.scss";
 import FoodList from "@/components/FoodList";
 import Pagination from "@/components/Pagination";
+import FilterSearchResult from "@/components/FilterSearchResult";
 
-const getFoodResults = async (query: string, page: number = 1) => {
+const getFoodResults = async (
+  query: string, 
+  page: number = 1,
+  type: string = '',
+  diet: string = '',
+  sort: string = ''
+) => {
   try {
     const offset = (page - 1) * 10; // Assuming pageSize is 10
     const response = await fetch(
-      `${
-        process.env.NEXT_PUBLIC_SEARCH_BASE_URL
-      }/recipes/complexSearch?query=${query}&offset=${offset}&number=${10}&apiKey=${
-        process.env.NEXT_PUBLIC_API_KEY
-      }`,
+      `${process.env.NEXT_PUBLIC_SEARCH_BASE_URL}/recipes/complexSearch?` +
+      `query=${query}` +
+      `&offset=${offset}` +
+      `&number=${10}` +
+      `${type ? `&type=${type}` : ''}` +
+      `${diet ? `&diet=${diet}` : ''}` +
+      `${sort ? `&sort=${sort}` : ''}` +
+      `&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`,
       {
         next: {
           revalidate: 1020,
@@ -56,14 +66,24 @@ const Query = async ({
   searchParams,
 }: {
   params: Promise<{ query: string }>;
-  searchParams: Promise<{ page?: string }>;
+  searchParams: Promise<{ 
+    page?: string;
+    type?: string;
+    diet?: string;
+    sort?: string; }>;
 }) => {
   const resolvedParams = await params;
   const resolvedSearchParams = await searchParams;
 
   const currentPage = Number(resolvedSearchParams?.page) || 1;
+  const type = resolvedSearchParams?.type || '';
+  const diet = resolvedSearchParams?.diet || '';
+  const sort = resolvedSearchParams?.sort || '';
   const pageSize = 10;
-  const data = await getFoodResults(resolvedParams.query, currentPage);
+  const data = await getFoodResults(resolvedParams.query, currentPage,
+    type,
+    diet,
+    sort);
   const safeData = {
     results: data?.results || [],
     offset: data?.offset || 0,
@@ -78,12 +98,15 @@ const Query = async ({
         <span className="text-orange-500">{resolvedParams.query}</span>&quot;
         <span className={styles.count}>({safeData.totalResults} results)</span>
       </h1>
+<div className={styles.searchContentResultBody}>
+<FilterSearchResult />
       <FoodList
         list={safeData.results}
         offset={safeData.offset}
         number={safeData.number}
         totalResults={safeData.totalResults}
       />
+</div>
       <Pagination
         totalResults={safeData.totalResults}
         currentPage={currentPage}

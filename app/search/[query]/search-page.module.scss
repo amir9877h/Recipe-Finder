@@ -1,0 +1,9 @@
+.searchContentResultBody {
+  display: flex;
+}
+@media only screen and (max-width: 850px) {
+  .searchContentResultBody {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
+}

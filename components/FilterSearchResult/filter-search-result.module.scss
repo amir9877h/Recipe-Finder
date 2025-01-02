@@ -1,0 +1,64 @@
+/* components/FilterSearchResult/FilterSearchResult.module.css */
+.filterContainer {
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  // margin-bottom: 2rem;
+  height: fit-content;
+  max-height: calc(100vh - 35px);
+  margin-inline-start: 20px;
+  position: sticky;
+  top: 20px;
+  overflow-y: auto;
+}
+
+.filterSection {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px 8px;
+  justify-content: space-between;
+}
+
+.filterSection h4 {
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 1rem;
+}
+
+.filterOptions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filterButton {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.filterButton:hover {
+  background-color: #f0f0f0;
+}
+
+.filterButton.active {
+  background-color: #ff6f3c;
+  color: white;
+  border-color: #ff6f3c;
+}
+
+@media screen and (max-width: 850px) {
+  .filterContainer {
+    position: static;
+    max-height: none;
+  }
+}
