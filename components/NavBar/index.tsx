@@ -37,8 +37,8 @@ const NavBar = () => {
         <NavLink href="/favorites">Favorites</NavLink>
         <NavLink href="/about">About Us</NavLink>
         <NavLink href="/contact">Contact Us</NavLink>
+        <ThemeToggle />
       </div>
-      <ThemeToggle />
     </nav>
   );
 };
