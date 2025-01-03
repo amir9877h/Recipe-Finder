@@ -33,3 +33,42 @@
     // height: 50px; // Set a fixed height
   }
 }
+
+.button {
+  /* Background color */
+  background-color: #f97316; /* bg-orange-500 */
+
+  /* Text styling */
+  color: #ffffff; /* text-white */
+  font-weight: 700; /* font-bold */
+
+  /* Padding */
+  padding: 0.5rem 1rem; /* py-2 px-4 */
+
+  /* Border */
+  border-bottom-width: 4px; /* border-b-4 */
+  border-bottom-color: #c2410c; /* border-orange-700 */
+  border-radius: 0.25rem; /* rounded */
+
+  /* Hover states */
+  &:hover {
+    background-color: #fb923c; /* hover:bg-orange-400 */
+    border-bottom-color: #f97316; /* hover:border-orange-500 */
+  }
+
+  /* Responsive design - for small screens (max-width: 640px) */
+  @media (max-width: 640px) {
+    font-size: 0.875rem; /* max-sm:text-sm */
+    line-height: 1.25rem;
+  }
+}
+
+.descriptionContainer {
+  display: flex; /* flex */
+  gap: 20px;
+  flex-direction: column;
+  justify-content: space-between; /* justify-between */
+  width: 100%; /* w-full */
+  padding-top: 1.25rem; /* py-5 */
+  padding-bottom: 1.25rem; /* py-5 */
+}
