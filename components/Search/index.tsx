@@ -43,6 +43,7 @@ const Search = () => {
         src={SearchBackgroundImage}
         alt="Food Table"
         className={styles.searchBackgroundImage}
+        priority={true}
       />
       <div className={styles.content}>
         <input
@@ -135,7 +136,8 @@ const SearchResultBox = ({ search }: { search: string }) => {
       ) : (
         <div className={[styles.searchResultBoxContent, "h-100"].join(" ")}>
           <p className="">
-            Loading data please wait <span className={styles.simpleLoading}>...</span>
+            Loading data please wait{" "}
+            <span className={styles.simpleLoading}>...</span>
           </p>
         </div>
       )}
@@ -161,7 +163,7 @@ const SearchResultCard = ({ food }: { food: Food }) => {
           alt={food.title}
           width={64}
           height={64}
-          objectFit="cover"
+          // objectFit="cover"
         />
       </div>
       <div className={styles.searchResultBoxContentText}>

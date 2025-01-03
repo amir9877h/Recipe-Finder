@@ -16,7 +16,7 @@ const NavBar = () => {
   return (
     <nav className={styles.navbarContainer}>
       <div className={styles.logo}>
-        <Image src={Logo} width={64} height={64} alt="Recipe Finder Logo" />
+        <Image src={Logo} width={64} height={64} alt="Recipe Finder Logo"/>
         <h1>Recipe Finder</h1>
       </div>
 

@@ -11,7 +11,6 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
-    domains: ["img.spoonacular.com"],
   },
 };
 

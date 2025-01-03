@@ -58,19 +58,23 @@ const FoodDetail = async ({ params }: Params) => {
           />
           <div className={styles.ingredients}>
             <h3 className="py-3 font-bold text-xl">Ingredients:</h3>
-            {food.extendedIngredients.map((item: FoodIngredients) => {
-              return (
-                <div key={item.id} className="py-1 flex gap-2">
-                  <h3 className="text-xl indent-6 font-bold">{item.name}: </h3>
-                  <p>{item.original}</p>
-                  {item.metric && (
-                    <p>
-                      amount: {item?.metric?.amount} {item?.metric?.unitLong}
-                    </p>
-                  )}
-                </div>
-              );
-            })}
+            {food.extendedIngredients.map(
+              (item: FoodIngredients, index: number) => {
+                return (
+                  <div key={item.id + index} className="py-1 flex gap-2">
+                    <h3 className="text-xl indent-6 font-bold">
+                      {item.name}:{" "}
+                    </h3>
+                    <p>{item.original}</p>
+                    {item.metric && (
+                      <p>
+                        amount: {item?.metric?.amount} {item?.metric?.unitLong}
+                      </p>
+                    )}
+                  </div>
+                );
+              }
+            )}
           </div>
           <div className="mt-5 flex gap-5 border border-s-orange-400 py-2 px-4">
             Links:

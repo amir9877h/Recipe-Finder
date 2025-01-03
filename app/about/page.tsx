@@ -23,6 +23,7 @@ const About = () => {
               src={CookingImage} // Make sure to add an appropriate image
               alt="Cooking"
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="rounded-lg object-cover shadow-xl"
             />
           </div>
@@ -76,9 +77,9 @@ const About = () => {
             Our Team
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            We&apos;re a passionate team of food lovers, developers, and designers
-            working together to bring you the best recipe discovery experience
-            possible.
+            We&apos;re a passionate team of food lovers, developers, and
+            designers working together to bring you the best recipe discovery
+            experience possible.
           </p>
         </div>
         <div className="text-center mt-5">
